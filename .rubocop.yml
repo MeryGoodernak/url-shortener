@@ -1,0 +1,14 @@
+AllCops:
+  NewCops: enable
+
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/development.rb'
