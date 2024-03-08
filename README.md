@@ -1,24 +1,38 @@
-# README
+# URL-Shortener
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A URL shortener is a web service that converts long URLs into shorter, more manageable links. These shortened URLs are easier to share, especially on platforms with character limits, and they redirect users to the original, longer URL when clicked.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+First clone the repository. Then on your terminal go to the root directory of the project and run:
 
-* System dependencies
+```
+bundle install
+```
 
-* Configuration
+This command installs all the dependencies.
 
-* Database creation
+## Run
 
-* Database initialization
 
-* How to run the test suite
+## Test and Lint
 
-* Services (job queues, cache servers, search engines, etc.)
+Rspec is utilized to write test and Rubocop to lint the code. To run
+tests run:
 
-* Deployment instructions
+```
+bundle exec rspec
+```
 
-* ...
+and to run rubocop:
+
+```
+ bundle exec rubocop
+```
+
+## Design Approach
+
+
+### Requirments
+
+- Regarding the character limitation for long URLs, it's worth noting that 2048 characters is the maximum length supported by most web servers and browsers. However, in practice, URLs longer than a few hundred characters are rare. Therefore, for practicality and storage efficiency considerations, we've set a 700-character limit for long URL data entry.
