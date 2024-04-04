@@ -4,9 +4,18 @@ require 'rails_helper'
 
 RSpec.describe 'Urls' do
   describe 'GET /' do
+    let(:paragraph) do
+      'Just copy that long URL and paste it down blew in the form and I will make it short and easy to remember'
+    end
+
+    before { get root_path }
+
     it 'renders the new template' do
-      get root_path
       expect(response).to have_http_status(:ok)
+    end
+
+    it 'has a pragraph asking user for the long URL' do
+      expect(response.body).to include(paragraph)
     end
   end
 
