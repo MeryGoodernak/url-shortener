@@ -28,4 +28,19 @@ RSpec.describe 'Urls' do
       end.to change(Url, :count).by(1)
     end
   end
+
+  describe 'GET /urls/:id' do
+    let(:url) { Url.create(short_url: 'test', long_url: 'testtesttest.com') }
+    let(:paragraph) { 'Look how short it is now:' }
+
+    before { get url_path(url) }
+
+    it 'render the show page for the URL' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'has a pragraph asking user for the long URL' do
+      expect(response.body).to include(paragraph)
+    end
+  end
 end

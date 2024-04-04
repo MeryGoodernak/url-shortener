@@ -1,0 +1,11 @@
+<h1>Welcome to URL Shortener</h1>
+<h2>where you can shorten any long URL</h2>
+<p>Here is your Long URL:</p>
+<ul>
+    <li><%= @url.long_url %></li>
+</ul>
+<p>Look how short it is now:</p>
+<ul>
+    <li><%= @url.short_url %></li>
+</ul>
+<%= link_to 'Shorten another', root_path %>
