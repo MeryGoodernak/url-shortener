@@ -1,0 +1,8 @@
+<h1>Welcome to URL Shortener</h1>
+<h2>where you can shorten any long URL</h2>
+<p>Here you can update your long URL and we generate a new short URL accordingly.</p>
+<%= form_with model: @url do |f| %>
+  <%= f.label :long_url %>
+  <%= f.text_field :long_url %>
+  <%= f.submit %>
+<% end %>
