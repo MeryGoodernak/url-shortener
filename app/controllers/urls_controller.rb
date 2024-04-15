@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UrlsController < ApplicationController
-  before_action :set_url, only: %i[show edit update]
+  before_action :set_url, only: %i[show edit update destroy]
 
   def show; end
 
@@ -20,6 +20,11 @@ class UrlsController < ApplicationController
   def update
     @url.update(url_params.merge(short_url: build_short_url))
     redirect_to url_path(@url)
+  end
+
+  def destroy
+    @url.destroy
+    redirect_to root_path
   end
 
   private

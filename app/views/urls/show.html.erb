@@ -10,3 +10,4 @@
 </ul>
 <button><%= link_to 'Shorten another', root_path %></button>
 <button><%= link_to 'Edit', edit_url_path %></button>
+<button><%= link_to 'Delete', url_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></button>
