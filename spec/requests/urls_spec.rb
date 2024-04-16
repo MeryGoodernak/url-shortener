@@ -72,4 +72,18 @@ RSpec.describe 'Urls' do
       end.to change(url, :long_url).from('testtesttesteditedit.com').to('testtesttestupdated.com')
     end
   end
+
+  describe 'DELETE /urls/:id' do
+    let(:url) { Url.create(short_url: 'niceurl', long_url: 'testtesttestdlete.com') }
+    let(:deleted_url) { Url.create(short_url: 'deleted', long_url: 'testtesttestdlete.com') }
+
+    before do
+      url
+      deleted_url
+    end
+
+    it 'deletes the record' do
+      expect { delete url_path(deleted_url) }.to change(Url, :count).by(-1)
+    end
+  end
 end
