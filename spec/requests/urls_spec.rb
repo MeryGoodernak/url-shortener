@@ -4,10 +4,6 @@ require 'rails_helper'
 
 RSpec.describe 'Urls' do
   describe 'GET /' do
-    let(:paragraph) do
-      'Just copy that long URL and paste it down blew in the form and I will make it short and easy to remember'
-    end
-
     before { get root_path }
 
     it 'renders the new template' do
@@ -15,6 +11,8 @@ RSpec.describe 'Urls' do
     end
 
     it 'has a pragraph asking user for the long URL' do
+      paragraph =
+        'Just copy that long URL and paste it down blew in the form and I will make it short and easy to remember'
       expect(response.body).to include(paragraph)
     end
   end
@@ -31,7 +29,6 @@ RSpec.describe 'Urls' do
 
   describe 'GET /urls/:id' do
     let(:url) { Url.create(short_url: 'test', long_url: 'testtesttest.com') }
-    let(:paragraph) { 'Look how short it is now:' }
 
     before { get url_path(url) }
 
@@ -40,15 +37,13 @@ RSpec.describe 'Urls' do
     end
 
     it 'has a pragraph asking user for the long URL' do
+      paragraph = 'Look how short it is now:'
       expect(response.body).to include(paragraph)
     end
   end
 
   describe 'GET /urls/:id/edit' do
     let(:url) { Url.create(short_url: 'edit', long_url: 'testtesttesteditedit.com') }
-    let(:paragraph) do
-      'Here you can update your long URL and we generate a new short URL accordingly.'
-    end
 
     before { get edit_url_path(url) }
 
@@ -57,6 +52,7 @@ RSpec.describe 'Urls' do
     end
 
     it 'has a pragraph asking user to customize the long or short URL' do
+      paragraph = 'Here you can update your long URL and we generate a new short URL accordingly.'
       expect(response.body).to include(paragraph)
     end
   end
