@@ -70,4 +70,4 @@ group :test do
   gem 'rubocop-rspec', '~> 2.27', '>= 2.27.1', require: false
 end
 
-gem "hotwire-rails", "~> 0.1.3"
+gem 'hotwire-rails', '~> 0.1.3'
