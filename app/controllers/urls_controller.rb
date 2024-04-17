@@ -3,6 +3,10 @@
 class UrlsController < ApplicationController
   before_action :set_url, only: %i[show edit update destroy]
 
+  def index
+    @urls = Url.all
+  end
+
   def show; end
 
   def new

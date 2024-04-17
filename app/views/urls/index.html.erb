@@ -1,0 +1,18 @@
+<h1>Welcome to URL Shortener</h1>
+<h2>where you can shorten any long URL</h2>
+<p>Here is all the long URLs with their corresponding short URLs</p>
+<table>
+    <tr>
+        <th>Short URL</th>
+        <th>Long URL</th>
+    </tr>
+    <% @urls.each do |url| %>
+        <tr>
+            <td><%= url.short_url %></td>
+            <td><%= url.long_url %></td>
+        </tr>
+    <% end %>
+</table>
+<button>
+    <%= link_to 'Back to the homepage', root_path %>
+</button>

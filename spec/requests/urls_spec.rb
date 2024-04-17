@@ -17,6 +17,20 @@ RSpec.describe 'Urls' do
     end
   end
 
+  describe 'GET /urls' do
+    before { get urls_path }
+
+    it 'renders the index page' do
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'has a pragraph shows user all the URLs' do
+      paragraph =
+        'Here is all the long URLs with their corresponding short URLs'
+      expect(response.body).to include(paragraph)
+    end
+  end
+
   describe 'POST /urls' do
     let(:url_params) { { long_url: 'http:://thisisjustfortest.com' } }
 
